@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>地图拖拽</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100%;
+            height: 375px;
+            border: 1px solid red;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+        }
+        img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="./map.png" alt="ditu">
+</div>
+<script type="text/javascript">
+    let box = document.querySelector(".box");
+    let imgNode = document.getElementsByTagName("img")[0];
+    box.addEventListener("touchstart",function (event) {
+        this.startX = event.changedTouches[0].clientX;
+        this.startY = event.changedTouches[0].clientY;
+
+        imgNode.startLeft = imgNode.offsetLeft;
+        imgNode.startTop = imgNode.offsetTop;
+    });
+    box.addEventListener("touchmove",function (event) {
+        this.endX = event.changedTouches[0].clientX;
+        this.endY = event.changedTouches[0].clientY;
+
+
+        imgNode.endLeft = this.endX-this.startX + imgNode.startLeft;
+        imgNode.endTop = this.endY-this.startY + imgNode.startTop;
+
+        if(imgNode.endLeft>0){
+            imgNode.endLeft = 0;
+        }
+        else if (imgNode.endLeft<box.clientWidth-imgNode.offsetWidth){
+            imgNode.endLeft=box.clientWidth-imgNode.offsetWidth;
+        }
+
+        if (imgNode.endTop>0){
+            imgNode.endTop = 0;
+        }
+        else if (imgNode.endTop< box.clientHeight-imgNode.offsetHeight){
+            imgNode.endTop = box.clientHeight-imgNode.offsetHeight;
+        }
+
+        imgNode.style.left = imgNode.endLeft + "px";
+        imgNode.style.top = imgNode.endTop + "px";
+    });
+
+</script>
+</body>
+</html>

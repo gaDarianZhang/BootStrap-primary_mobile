@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test-swiper</title>
+    <link rel="stylesheet" href="css/swiper-package.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+        }
+        html,body,#app{
+            width: 100%;
+            overflow: hidden;
+        }
+        header{
+            width: 100%;
+            height: 50px;
+            background-color: #98eade;
+        }
+        .content{
+            width: 100%;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <header></header>
+    <div id="swiper-container1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+        </div>
+        <div class="swiper-pagination">
+
+        </div>
+    </div>
+
+    <div class="content"></div>
+
+    <div id="swiper-container2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/4.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/5.jpg" alt=""></div>
+        </div>
+        <div class="swiper-pagination">
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/transformCSS.js"></script>
+<script type="text/javascript" src="js/swiper-package.js"></script>
+<script type="text/javascript">
+    new Swiper("#swiper-container1",{
+        auto:true,
+        loop:false,
+        pagination:false
+    });
+    new Swiper("#swiper-container2");
+
+</script>
+</body>
+</html>

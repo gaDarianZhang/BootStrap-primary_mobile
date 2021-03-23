@@ -1,0 +1,33 @@
+
+.swiper-wrapper {
+    /*overflow: hidden; !*为了开启bfc,有了下边的absolute就不需要overflow:hidden了*!*/
+    position: absolute;
+}
+.swiper-wrapper .swiper-slide {
+    float: left;
+}
+
+.swiper-wrapper .swiper-slide img {
+    width: 100%;
+}
+
+.swiper-pagination {
+    position: absolute;
+    height: 10px;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+.swiper-pagination span {
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    border-radius: 50%;
+    background-color: whitesmoke;
+}
+
+.swiper-pagination span.active {
+    background-color: darkorange;
+}

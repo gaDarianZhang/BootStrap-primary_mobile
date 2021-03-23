@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10PC时间对象</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            display: block;
+        }
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: rgba(176,222,216,0.67);
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+    醉翁之意不在酒
+</div>
+
+<script type="text/javascript">
+    let box1 = document.getElementById("box1");
+    box1.onclick = function (e) {
+    //    获取鼠标点击位置相对于窗口的位置
+        let mouseX = e.clientX;
+        let mouseY = e.clientY;
+        console.log(mouseX,mouseY);
+    }
+    window.onkeydown = function (e) {
+        console.log(e.keyCode);
+        console.log(e.code);
+        //检测是否按了ctrl+c
+        if (e.keyCode==67 && e.ctrlKey){
+            console.log("你按了ctrl+c");
+            e.preventDefault();
+        }
+    }
+
+    //阻止网页中右键菜单
+    window.oncontextmenu = function (ev) {
+        ev.preventDefault();
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #8c8c8c;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<button>点击移动</button>
+<script type="text/javascript" src="js/transformCSS.js"></script>
+<script type="text/javascript">
+    var box = document.getElementById("box");
+    box.style.transition = "all 2s";
+    transformCSS(box,"translateX",100);
+    transformCSS(box,"translateX",200);
+    // transformCSS(box,"rotate",45);
+    console.log(transformCSS(box,"translateX"));
+    document.getElementsByTagName("button")[0].onclick = function () {
+        box.style.transform = "translateX(100px)";
+    }
+
+
+</script>
+</body>
+</html>

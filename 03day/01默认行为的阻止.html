@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>01默认行为的阻止</title>
+</head>
+<body>
+<a href="https://www.baidu.com">百度链接</a>
+</body>
+<script type="text/javascript">
+    let aNode = document.documentElement.firstElementChild.nextElementSibling.firstElementChild;
+    // console.log(aNode);
+    aNode.onclick = function (e) {
+        e = e || window.event;
+        e.preventDefault();/*阻止默认行为，点击标签a之后不会跳转*/
+    }
+
+
+</script>
+</html>

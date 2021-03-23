@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01ios手势事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #box {
+            width: 100%;
+            height: 300px;
+            background: #909;
+        }
+    </style>
+</head>
+<body>
+<!-- gesture 手势-->
+<div id="box"></div>
+<script>
+
+    document.documentElement.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+    }, {
+        passive: false
+    });
+    var box = document.querySelector('#box');
+
+    box.addEventListener('gesturestart', function () {
+        box.innerHTML = '手势开始喽!!';
+        box.style.background = 'red';
+    });
+
+    box.addEventListener('gesturechange', function (e) {
+        box.innerHTML = '动作改变的比例: ' + e.scale + '<br>手势的旋转角度 ' + e.rotation;
+        box.style.background = 'yellow';
+        // e.scale
+        // e.rotation
+    });
+
+    box.addEventListener('gestureend', function () {
+        box.innerHTML = '把手抬起来啦!!!';
+        box.style.background = 'blue';
+    });
+</script>
+</body>
+</html>

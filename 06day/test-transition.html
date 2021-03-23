@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<input type="button" value="点击移动">
+<script type="text/javascript">
+    let divNode = document.querySelector("div");
+    let btn = document.querySelector("input");
+    console.log(divNode);
+
+    btn.addEventListener("click",function () {
+        divNode.style.transition = "all 1s cubic-bezier(.38,1.06,.72,-1.62)";//不用把过渡加到前边也行
+
+        divNode.style.transform = "translateX(500px)";
+        divNode.style.transition = "all 1s";//不用把过渡加到前边也行
+        divNode.style.transform = "translateY(200px)";
+    });
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test-overflow</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 300px;
+            background-color: #8c8c8c;
+            overflow: hidden;
+        }
+        .box2{
+            width: 150px;
+            height: 200px;
+            background-color: #00b3ee;
+            /* overflow: hidden;没用 */
+        }
+        .box3{
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2">
+        <div class="box3"></div>
+    </div>
+</div>
+</body>
+</html>

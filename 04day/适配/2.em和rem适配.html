@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 80px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.em和rem适配</title>
+<!--
+    em表示父元素的字体大小
+    rem表示根元素（html）的字体大小
+-->
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            font-size: 40px;
+        }
+        #inner{
+            font-size: 1em;
+            width: 2rem;
+            height: 100px;
+            background-color: #2e6da4;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+        重点来了
+    </div>
+</div>
+
+</body>
+</html>

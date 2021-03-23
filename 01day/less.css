@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+.center,
+.lunbo-container {
+  margin: 20px auto;
+  width: 80%;
+}
+header {
+  height: 50px;
+  background-color: orange;
+}
+/*@变量本是当做变量值，但如果当做字符串来用的话，要加上{}*/
+.alert {
+  height: 50px;
+  margin: 20px auto;
+  width: 80%;
+  background-color: #0D3349;
+}
+.lunbo-container {
+  height: 100px;
+  background-color: pink;
+}
+@media (min-width: 900px) {
+  .lunbo-container {
+    background-color: red;
+  }
+}
+.paper {
+  background-color: #00AA88;
+  background-color: mediumpurple;
+  height: 200px;
+}
+body {
+  background-color: grey;
+}
+/*# sourceMappingURL=less.css.map */

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>6.1px边框</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+        #box1{
+            border-bottom: 1px solid red;
+        }
+        #box2::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 1px;
+            background-color: red;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 2){
+            #box2::after{
+                transform: scaleY(0.5);
+            }
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 3){
+            #box2::after{
+                transform: scaleY(0.33);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+<script type="text/javascript">
+    document.getElementById("box1").innerText = devicePixelRatio;
+
+</script>
+</body>
+</html>

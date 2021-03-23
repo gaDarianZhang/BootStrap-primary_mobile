@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--   BootStrap   -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" defer></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" defer></script>
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body{
+            height: 5000px;
+            position: relative;
+        }
+        #carousel-example-generic{
+            height: 400px;
+            overflow: hidden;
+        }
+        .gap-20{
+            height: 20px;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#bs-example-navbar-collapse-1">
+<!--底部导航条-->
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-inverse">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home">浏览器</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#zongshu">总述 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#jianshu">简述</a></li>
+                <li><a href="#guanyu">关于</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">特点 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+<!--                        <li role="separator" class="divider"></li>-->
+                        <li><a href="#">Separated link</a></li>
+<!--                        <li role="separator" class="divider"></li>-->
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--轮播图-->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="./imgs/chrome-big.jpg" alt="...">
+
+        </div>
+        <div class="item">
+            <img src="./imgs/safari-big.jpg" alt="...">
+
+        </div>
+        <div class="item">
+            <img src="./imgs/firefox-big.jpg" alt="...">
+
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="gap-20"></div>
+<div class="gap-20"></div>
+<!--总述-->
+<div class="container" id="zongshu">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="./imgs/chrome-logo-small.jpg" alt="...">
+                <div class="caption text-center">
+                    <h3>chrome浏览器</h3>
+                    <p>Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+                    <p><a href="#" class="btn btn-primary" role="button">点击下载</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="./imgs/safari-logo-small.jpg" alt="...">
+                <div class="caption text-center">
+                    <h3>chrome浏览器</h3>
+                    <p>Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+                    <p><a href="#" class="btn btn-primary" role="button">点击下载</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="./imgs/firefox-logo-small.jpg" alt="...">
+                <div class="caption text-center">
+                    <h3>chrome浏览器</h3>
+                    <p>Google Chrome，又称Google浏览器，是一个由Google（谷歌）公司开发的网页浏览器。</p>
+                    <p><a href="#" class="btn btn-primary" role="button">点击下载</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--简述-->
+<div class="gap-20"></div>
+
+<div class="container" id="jianshu">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#Chrome" aria-controls="Chrome" role="tab" data-toggle="tab">Chrome</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Firefox</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Safari</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Opera</a></li>
+        <li role="presentation"><a href="#IE" aria-controls="IE" role="tab" data-toggle="tab">IE</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active row" id="Chrome">
+            <div class="col-xs-7">
+                <div class="page-header">
+                    <h1>Chrome —— 高效·稳定·开发利器</h1>
+                </div>
+                <p>谷歌Chrome是基于WebKit开发的，苹果的Safari和谷歌的Android也都是基于这个该引擎开发的。 谷歌Chrome目前为Beta版本，它现在还只能被用于Windows、Mac和Linux三个操作系统 谷歌Chrome承诺将会更加稳定——每个浏览标签将会使用独立的进程，因此，即使有页面出错也不会导致整个浏览器崩溃。 作为浏览器界面中最为重要的标签将被放置于窗口之上，而之前的浏览器的标签通常都位于地址栏下方。 当打开新的标签页时，你还可以看到九个最常访问的页面的缩略图以及最近的搜索项。</p>
+            </div>
+            <div class="col-xs-5">
+                <img src="./imgs/chrome-logo.jpg" alt="" class="img-responsive">
+            </div>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">...</div>
+        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+        <div role="tabpanel" class="tab-pane" id="IE">...</div>
+    </div>
+
+</div>
+<!--关于-->
+<div class="container" id="guanyu">
+    <div class="page-header">
+        <h3>关于我们</h3>
+    </div>
+    <p>尚硅谷IT教育隶属于北京晟程华科教育科技有限公司，是一家专业IT教育培训机构，拥有北京、深圳、上海三处基地。自2013年成立以来，凭借优秀的教育理念、前沿的课程体系、专业的教学团队、科学的考评制度、严格的教务管理、完备的就业保障，已经为行业输送了数万名高端技术人才。 尚硅谷现开设Java、HTML5前端+全栈、大数据+机器学习、人工智能、大数据运维+Python自动化、Android+HTML5混合开发等多门学科；同时，通过视频分享、谷粒学院在线课堂、直播课堂等多种方式，满足了全国编程爱好者对多样化学习场景的需求。目前，面授班学员绝大多数都在北上广深等一线城市高薪就业，就业薪资更是屡创新高！</p>
+</div>
+
+</body>
+</html>

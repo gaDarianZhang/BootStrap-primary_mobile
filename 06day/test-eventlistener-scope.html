@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test-eventlistener-scope</title>
+</head>
+<body>
+<button>点击启动listener</button>
+<script type="text/javascript">
+    let btn = document.querySelector("button");
+    btn.addEventListener("click",function () {
+        let str = "test let in listener";
+        console.log(str);
+    })
+
+</script>
+</body>
+</html>

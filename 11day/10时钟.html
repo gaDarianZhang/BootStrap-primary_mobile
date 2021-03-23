@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>10时钟</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+
+    </style>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+    let canvas = document.querySelector("canvas");
+    canvas.width = 500;
+    canvas.height = 500;
+    canvas.style.backgroundColor = "rgba(234,234,234,.8)";
+    canvas.style.position = "absolute";
+    canvas.style.left = "50%";
+    canvas.style.top = "50%";
+    canvas.style.transform = "translateX(-50%) translateY(-50%)";
+
+    let ctx = canvas.getContext('2d');
+    let r = 150;
+    //移动坐标轴到中间
+    ctx.translate(canvas.width/2,canvas.height/2);
+    ctx.rotate(-90/180*Math.PI);
+    setInterval(function(){
+        ctx.clearRect(-canvas.width/2,-canvas.height/2,canvas.width,canvas.height);
+
+        //画圆圈
+        ctx.beginPath();
+        ctx.strokeStyle = "gray";
+        ctx.lineWidth = 2;
+
+        ctx.moveTo(r,0);
+        ctx.arc(0,0,r,0,360/180*Math.PI);
+        ctx.stroke();
+        //画分针刻度。
+        ctx.save();
+        for (let i = 0; i < 60; i++) {
+            if (i%5!=0){
+                ctx.beginPath();
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = r/100;
+                ctx.moveTo(r*0.9,0);
+                ctx.lineTo(r*0.95,0);
+                ctx.stroke();
+            }
+            ctx.rotate(6/180*Math.PI);
+        }
+        ctx.restore();
+        //画时针刻度
+        ctx.save();
+        for (let i = 0; i < 12; i++) {
+            ctx.beginPath();
+            ctx.strokeStyle = "rgb(139,0,0)";
+            ctx.lineWidth = r/50;
+            ctx.moveTo(r*0.87,0);
+            ctx.lineTo(r*0.95,0);
+            ctx.stroke();
+            ctx.rotate(30/180*Math.PI);
+        }
+        ctx.restore();
+
+        //得到现在时间和时分秒针的位置
+        let time = new Date();
+        let h = time.getHours();
+        let m = time.getMinutes();
+        let s = time.getSeconds();
+        let hDegree = (s + m*60 + (h-12)*3600)/(3600*12)*360;
+        let mDegree = (s + m*60)/3600 * 360;
+        let sDegree = s/60 * 360;
+        // console.log(h,m,s);
+        // console.log(hDegree, mDegree, sDegree);
+
+
+        //设置秒针位置
+        ctx.save();
+        ctx.rotate(sDegree/180*Math.PI);
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb(33,29,29)";
+        ctx.lineCap = "round";
+        ctx.moveTo(-r*0.07,0);
+        ctx.lineTo(r*0.83,0);
+        ctx.stroke();
+        ctx.restore();
+
+        //设置分针位置
+        ctx.save();
+        ctx.rotate(mDegree/180*Math.PI);
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb(94,69,69)";
+        ctx.lineCap = "round";
+        ctx.lineWidth = 3;
+        ctx.moveTo(-r*0.05,0);
+        ctx.lineTo(r*0.68,0);
+        ctx.stroke();
+        ctx.restore();
+        //设置时针位置
+        ctx.save();
+        ctx.rotate(hDegree/180*Math.PI);
+        ctx.beginPath();
+        ctx.strokeStyle = "rgb(142,43,43)";
+        ctx.lineCap = "round";
+        ctx.lineWidth = 4;
+        ctx.moveTo(-r*0.03,0);
+        ctx.lineTo(r*0.52,0);
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(0,0,r*0.02,0,360/180*Math.PI);
+        ctx.fillStyle= "rgb(194,32,32)";
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+    },1000);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

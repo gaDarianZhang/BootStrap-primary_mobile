@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>14竖向滑屏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        html,body,#app{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #box{
+            background-color: #2e6da4;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="box"></div>
+</div>
+<script type="text/javascript">
+    let box = document.querySelector("#box");
+    let app = document.getElementById("app");
+
+    let str = "";
+    for (var i = 0; i < 100; i++) {
+        str += i + "<br>";
+    }
+    box.innerHTML = str;
+
+    app.addEventListener("touchstart",function (ev) {
+        //获取触点起始位置
+        app.touchStart = ev.touches[0].clientY;
+        //获取内容区的其实位置
+        box.boxStart = box.offsetTop;
+    });
+    app.addEventListener("touchmove",function (ev) {
+        app.touchEnd = ev.touches[0].clientY;
+        box.boxEnd = box.boxStart + app.touchEnd - app.touchStart;
+        if (box.boxEnd>0){
+            box.boxEnd = 0;
+        }
+        else if (box.boxEnd<app.offsetHeight-box.offsetHeight){
+            box.boxEnd = app.offsetHeight-box.offsetHeight;
+        }
+        box.style.top = box.boxEnd + 'px';
+
+    })
+
+</script>
+</body>
+</html>

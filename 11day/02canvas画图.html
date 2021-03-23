@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02canvas画图</title>
+</head>
+<body>
+<canvas></canvas>
+<script type="text/javascript">
+    let canvas1 = document.getElementsByTagName("canvas")[0];
+    let ctx = canvas1.getContext("2d");
+
+    ctx.beginPath();
+    ctx.strokeStyle= "red";
+    ctx.moveTo(10,20);
+    ctx.lineTo(20,40);
+    ctx.stroke();
+
+    ctx.arc(150,100, 50, 0, 360/180*Math.PI, true);
+
+    ctx.beginPath();
+    ctx.moveTo(50,50);
+    ctx.lineTo(20,40);
+    ctx.strokeStyle= "blue";
+    ctx.lineTo(60,90);
+    ctx.stroke();
+
+</script>
+</body>
+</html>

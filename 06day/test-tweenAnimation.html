@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test-tweenAnimation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: darksalmon;
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<script type="text/javascript" src="js/transformCSS.js"></script>
+<script type="text/javascript" src="js/tweenAnimation.js"></script>
+<script type="text/javascript">
+    let box1 = document.querySelector(".box1");
+    let box2 = document.querySelector(".box2");
+
+    let box1Timer1 = tweenAnimation(box1,"translateX",5000,0,500,10);
+    let box1Timer2 = tweenAnimation(box1,"translateX",2000,0,200,30);
+
+    let box2Timer1 = tweenAnimation(box2,"width",3000,100,500,12,"backEaseOut");
+    
+    // console.log(box1Timer2);
+    box1.addEventListener("click",function () {
+        // clearInterval(box1Timer2);
+        clearInterval(box1.timer.translateX);
+
+    });
+    box2.addEventListener("click",function () {
+        // clearInterval(box2Timer1);
+        clearInterval(box2.timer.width);
+    });
+
+</script>
+</body>
+</html>

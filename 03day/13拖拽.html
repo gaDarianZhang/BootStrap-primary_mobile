@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>13拖拽</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #box{
+            width: 50px;
+            height: 50px;
+            background-color: #2e6da4;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box">sdf</div>
+<script type="text/javascript">
+    let box = document.getElementById("box");
+    let touchStart = {};
+    let boxStart = {};
+    let touchEnd = {};
+    let boxEnd = {};
+
+    box.addEventListener("touchstart",function (ev) {
+        //获取手指按下时触点的位置
+        touchStart = {
+            x:ev.touches[0].clientX,
+            y:ev.touches[0].clientY
+        }
+        //获取手指按下时元素的位置
+        boxStart = {
+            x:box.offsetLeft,
+            y:box.offsetTop
+        }
+    });
+    box.addEventListener("touchmove",function (ev) {
+        //获取手指移动时触点的位置
+        touchEnd = {
+            x:ev.touches[0].clientX,
+            y:ev.touches[0].clientY
+        }
+        console.log(touchEnd);
+        this.innerHTML = "x:"+touchEnd.x+"<br>y:"+touchEnd.y;
+        //设置手指按下时元素的位置
+        boxEnd = {
+            x:boxStart.x + touchEnd.x - touchStart.x,
+            y:boxStart.y + touchEnd.y - touchStart.y
+        }
+        box.style.left = boxEnd.x + 'px';
+        box.style.top = boxEnd.y + 'px';
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08点击穿透-解决5</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            display: block;
+        }
+        .clearfix:before,
+        .clearfix:after{
+            display: table;
+            content: '';
+            clear: both;
+        }
+        .gap{
+            height: 50px;
+        }
+        #swapper{
+            height: 100px;
+            width: 80%;
+            background-color: #8c8c8c;
+            margin: 0 auto;
+        }
+
+        #nav{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .item{
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        #cover{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(0,0,0,.5);
+        }
+        .content{
+            width: 50%;
+            height: 100px;
+            text-align: center;
+            margin: 195px auto;
+        }
+        .remind{
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+    </style>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/holder/2.9.7/holder.min.js"></script>
+</head>
+<body>
+<div class="gap"></div>
+<div class="gap"></div>
+<div id="swapper"></div>
+<div class="gap"></div>
+<div id="nav">
+    <div class="item"><a href="https://www.baidu.com"><img src="holder.js/50x50" alt=""></a></div>
+    <div class="item"><a href="https://www.baidu.com"><img src="holder.js/50x50" alt=""></a></div>
+    <div class="item"><a href="https://www.baidu.com"><img src="holder.js/50x50" alt=""></a></div>
+    <div class="item"><a href="https://www.baidu.com"><img src="holder.js/50x50" alt=""></a></div>
+    <div class="item"><a href="https://www.baidu.com"><img src="holder.js/50x50" alt=""></a></div>
+</div>
+
+<div id="cover">
+    <div class="content clearfix">
+        <span class="remind">充值成功</span>
+        <button id="close">关闭</button>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    let but = document.getElementById("close");
+    let coverNode = document.getElementById("cover");
+    let imgNodes = document.getElementsByTagName("img");
+    but.addEventListener("touchstart",function (e) {
+
+        // but.t1 = Date.now();
+        setTimeout(function () {
+            coverNode.style.display = "none";//！！！！！！！！！！！要把这一句放在定时器内
+        },1000);
+    });
+
+    for (let i = 0; i < imgNodes.length; i++) {
+        imgNodes[i].onclick = function () {
+            console.log(i);
+            // console.log(Date.now()-but.t1);
+        }
+    }
+
+
+</script>
+</body>
+</html>

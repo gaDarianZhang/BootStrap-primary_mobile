@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01音频</title>
+    <style>
+        input{
+            outline:none;
+        }
+    </style>
+</head>
+<body>
+<button>anniu</button>
+<br>
+<input type="button" value="按钮">
+<br>
+<input type="text" value="按钮">
+<audio src="./resource/mp3/6005752P3TP213351.mp3" controls autoplay></audio>
+<script type="text/javascript">
+    let yinpin = document.querySelector("audio");
+    yinpin.onvolumechange = function () {
+        console.log(yinpin.volume);
+    }
+
+</script>
+</body>
+</html>

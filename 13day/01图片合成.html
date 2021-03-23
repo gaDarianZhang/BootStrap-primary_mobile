@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01图片合成</title>
+    <style>
+        canvas{
+            display: block;
+            margin: 100px auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500"></canvas>
+<script type="text/javascript">
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = "red";
+    ctx.fillRect(50,50,200,50);
+    ctx.globalCompositeOperation = "source-over";
+    ctx.fillStyle = "orange";
+    ctx.fillRect(50,50,50,200);
+
+</script>
+</body>
+</html>

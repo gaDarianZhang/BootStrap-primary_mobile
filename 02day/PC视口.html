@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PC视口</title>
+</head>
+<body style="height: 2000px">
+<script type="text/javascript">
+// 获取可视区域的宽度
+console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
+//获取浏览器窗口的宽度
+console.log(window.innerWidth,window.innerHeight);//包含了滚动条的宽度
+//获取浏览器的总宽度
+console.log(window.outerWidth,window.outerHeight);
+//获取屏幕的宽度
+console.log(screen.width,screen.height);
+console.log(screen.availWidth,screen.availHeight);//去掉windows的任务栏
+</script>
+</body>
+</html>

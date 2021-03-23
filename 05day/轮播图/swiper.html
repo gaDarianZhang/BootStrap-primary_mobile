@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index-transform</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+        }
+
+        html, body, #app {
+            width: 100%;
+            height: 100%;
+            /*overflow: hidden;*/
+        }
+
+        #swiper-container {
+            width: 100%;
+            /*height: 176px;*/
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swiper-wrapper {
+            width: 500%;
+            /*overflow: hidden; !*为了开启bfc,有了下边的absolute就不需要overflow:hidden了*!*/
+            position: absolute;
+        }
+
+        .swiper-wrapper .swiper-slide {
+            width: 20%;
+            float: left;
+        }
+
+        .swiper-wrapper .swiper-slide img {
+            width: 100%;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            height: 10px;
+            /*width: 100px;*/
+            /*background-color: yellow;*/
+            left: 50%;
+            bottom: 10px;
+            transform: translateX(-50%);
+
+        }
+
+        .swiper-pagination span {
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin-right: 3px;
+            border-radius: 50%;
+            background-color: whitesmoke;
+        }
+
+        .swiper-pagination span.active {
+            background-color: darkorange;
+        }
+        #content{
+            width: 100%;
+            height: 2000px;
+            background-image: linear-gradient(to right top,antiquewhite,skyblue);
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="app">
+    <div id="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/4.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/5.jpg" alt=""></div>
+        </div>
+        <div class="swiper-pagination">
+
+        </div>
+    </div>
+    <div id="content"></div>
+</div>
+<script type="text/javascript" src="js/transformCSS.js"></script>
+<script type="text/javascript" src="js/swiper-package.js"></script>
+<script type="text/javascript">
+    new Swiper("#swiper-container",{
+        auto:true,
+        loop:false,
+        intervalTime:5000
+    });
+
+
+
+</script>
+</body>
+</html>

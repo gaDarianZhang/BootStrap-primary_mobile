@@ -1,0 +1,319 @@
+@import "swiper-package.css";
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: 14px "Microsoft YaHei", "Arial", "黑体", sans-serif;
+  color: #333;
+}
+td,
+th,
+caption {
+  font-size: 14px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+img {
+  border: none;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+input,
+textarea,
+select,
+button {
+  font: 14px "Microsoft YaHei", "Arial", "黑体", sans-serif;
+}
+table {
+  border-collapse: collapse;
+}
+/*# sourceMappingURL=reset.less.map */
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  overflow: hidden;
+}
+html {
+  font-size: 108px;
+}
+.head {
+  width: 100%;
+  background-color: #232323;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.head .head-up {
+  height: 1.25rem;
+}
+.head .head-up .logo {
+  float: left;
+  width: 2.22222222rem;
+  height: 0.81481481rem;
+  padding: 0.24074074rem 0.15740741rem 0.19444444rem;
+}
+.head .head-up .logo img {
+  width: 100%;
+}
+.head .head-up .menu {
+  float: left;
+  width: 1.19444444rem;
+  height: 1.25rem;
+  background-image: url("../img/menuBtn.png");
+  background-position: center 0.14814815rem;
+  background-size: 0.75925926rem 2.15740741rem;
+  background-repeat: no-repeat;
+}
+.head .head-up .menu.open {
+  background-position: center -1.11111111rem;
+}
+.head .head-up .btn-group {
+  float: right;
+  padding-top: 0.19444444rem;
+}
+.head .head-up .btn-group .btn {
+  background-color: #690;
+  float: left;
+  text-align: center;
+}
+.head .head-up .btn-group .login-btn,
+.head .head-up .btn-group .register-btn {
+  width: 1.02777778rem;
+  height: 0.72222222rem;
+  margin-right: 0.13888889rem;
+  line-height: 0.72222222rem;
+  color: #ccc;
+  font-size: 0.38888889rem;
+  border-radius: 0.07407407rem;
+}
+.head .head-up .btn-group .search-btn {
+  width: 1.2037037rem;
+  height: 0.81481481rem;
+  margin: 0.02777778rem 0.27777778rem 0 0;
+  line-height: 0.81481481rem;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 0.09259259rem;
+}
+.head .head-down {
+  height: 0.9537037rem;
+  padding: 0.14814815rem;
+}
+.head .head-down ::-webkit-input-placeholder {
+  color: #333333;
+}
+.head .head-down input {
+  box-sizing: border-box;
+  width: 7.67592593rem;
+  height: 0.9537037rem;
+  padding: 0.0462963rem 0.09259259rem;
+  border: 1px solid #5a5a5a;
+  outline: none;
+  background-color: #999;
+  font-size: 0.37962963rem;
+  color: #333;
+  border-radius: 0.13888889rem;
+}
+.head .head-down input:focus {
+  background-color: white;
+}
+.head .head-down button {
+  width: 1.87962963rem;
+  height: 0.9537037rem;
+  outline: none;
+  background-color: #414040;
+  color: #fff;
+  font-size: 0.37962963rem;
+  border-radius: 0.13888889rem;
+  border: none;
+}
+.head .head-cover {
+  display: none;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  top: 1.25rem;
+  border-top: 1px solid #6a6a6a;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.head .head-cover li {
+  width: 22.5%;
+  height: 1.25rem;
+  line-height: 1.25rem;
+  font-size: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  float: left;
+}
+.head .head-cover li a {
+  color: white;
+}
+.head .head-cover.open {
+  display: block;
+}
+#main {
+  padding-top: 2.5rem;
+  /*导航条*/
+  /*影视区*/
+}
+#main .nav {
+  box-sizing: border-box;
+  height: 1.63888889rem;
+  padding: 0.28703704rem 0 0.12962963rem;
+}
+#main .nav .wrap {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 0;
+}
+#main .nav .wrap li {
+  display: inline-block;
+  height: 1.19444444rem;
+  padding: 0 0.35185185rem;
+  font-size: 0.625rem;
+  line-height: 1.19444444rem;
+  text-align: center;
+}
+#main .nav .wrap li a {
+  color: #020202;
+}
+#main .nav .wrap li.active {
+  background-color: #690;
+}
+#main .nav .wrap li.active a {
+  color: #fff;
+}
+#main .floor {
+  width: 9.68518519rem;
+  margin: 0 auto;
+  background-color: #fff;
+}
+#main .floor header {
+  height: 1.25rem;
+  line-height: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+#main .floor header h3 {
+  font-size: 0.68518519rem;
+  font-weight: bold;
+  color: #000;
+}
+#main .floor nav {
+  height: 0.97222222rem;
+  line-height: 0.97222222rem;
+  position: relative;
+}
+#main .floor nav .nav-item {
+  float: left;
+  height: 0.97222222rem;
+  width: 1.11111111rem;
+  line-height: 0.97222222rem;
+  text-align: center;
+  font-size: 0.40740741rem;
+  color: #6b6b6b;
+}
+#main .floor nav .move-border {
+  width: 1.11111111rem;
+  height: 0.08333333rem;
+  background-color: #6f900d;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#main .floor section.container .swiper-wrapper .swiper-slide .mv {
+  float: left;
+  box-sizing: border-box;
+  width: 4.68518519rem;
+  margin: 0.07407407rem;
+  padding: 0.0462963rem;
+  font-size: 0.37037037rem;
+  background-color: #efefef;
+  color: #000000;
+}
+#main .floor section.container .swiper-wrapper .swiper-slide .mv img {
+  width: 100%;
+  display: block;
+}
+#main .floor section.container .swiper-wrapper .swiper-slide .mv .info {
+  display: flex;
+}
+#main .floor section.container .swiper-wrapper .swiper-slide .mv .info .play {
+  display: flex;
+}
+#main .floor section.container .swiper-wrapper .swiper-slide .mv .info .play .icon {
+  width: 0.55555556rem;
+  height: 0.47222222rem;
+  background-image: url("../img/ice.png");
+  background-repeat: no-repeat;
+  background-position: center 0.11111111rem;
+}
+#main .floor section.container .swiper-wrapper .swiper-slide .mv .info .play span {
+  margin-right: 0.27777778rem;
+}
+#main .floor section.container .swiper-wrapper .swiper-slide .mv .info .comment {
+  display: flex;
+}
+#main .floor section.container .swiper-wrapper .swiper-slide .mv .info .comment .icon {
+  width: 0.55555556rem;
+  height: 0.47222222rem;
+  background-image: url("../img/ice.png");
+  background-repeat: no-repeat;
+  background-position: center -0.41666667rem;
+}
+/*# sourceMappingURL=app.css.map */

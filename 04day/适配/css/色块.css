@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 75 px;
+}
+#app {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.96rem 0.72rem 1.33333333rem 0.66666667rem;
+}
+#app header {
+  width: 8.61333333rem;
+  height: 3.86666667rem;
+  background-color: #76d1a7;
+  margin-bottom: 0.57333333rem;
+}
+#app #content {
+  display: flex;
+  justify-content: space-between;
+}
+#app #content .left {
+  width: 1.68rem;
+  height: 6.22666667rem;
+  background-color: #c464a5;
+}
+#app #content .right {
+  width: 6.34666667rem;
+  height: 8.66666667rem;
+  background-color: #697cc3;
+}
+/*# sourceMappingURL=色块.css.map */

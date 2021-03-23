@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02模拟实现手势事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #box {
+            width: 100%;
+            height: 300px;
+            background: #909;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<!-- gesture 手势-->
+<div id="box"></div>
+<script>
+    document.documentElement.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+    }, {
+        passive: false
+    })
+    var box = document.querySelector('#box');
+    //检测 gesturestart 事件是否已经触发
+    box.hasGestureStartTriggered = false;
+    //
+    box.addEventListener('touchstart', function (e) {
+        //获取屏幕上的触点信息
+        var t = e.touches;
+        if (t.length >= 2) {
+            //所谓的 gesturestart 的事件处理程序了
+            box.innerHTML = '模拟的手势开始事件!!';
+            box.style.background = 'red';
+            //修改状态变量的值
+            this.hasGestureStartTriggered = true;
+        }
+    });
+
+    box.addEventListener('touchmove', function (e) {
+        //获取屏幕上的触点信息
+        var t = e.touches;
+        if (t.length >= 2) {
+            //所谓的 gesturechange 的事件处理程序了
+            box.innerHTML = '模拟的手势改变事件!!' + Math.random();
+            box.style.background = 'yellow';
+        }
+    });
+
+    box.addEventListener('touchend', function (e) {
+        var t = e.touches;
+        if (t.length < 2 && this.hasGestureStartTriggered) {
+            //触发 gestureend 事件
+            box.innerHTML = '手势结束事件';
+            box.style.background = 'blue';
+
+            this.hasGestureStartTriggered = false;
+        }
+    });
+</script>
+</body>
+</html>

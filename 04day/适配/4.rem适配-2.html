@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4.rem适配-2</title>
+<!--    <script type="text/javascript">
+        document.documentElement.style.fontSize = window.innerWidth/10+"px";
+        window.onresize = function () {
+            document.documentElement.style.fontSize = window.innerWidth/10+"px";
+        }
+
+    </script>-->
+
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            width: 9.24rem;
+            height: 3.69rem;
+            margin-left: 0.4rem;
+            margin-top: 2.33rem;
+            border-radius: 0.17rem;
+            background-color: #2e6da4;
+
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="box"></div>
+<script type="text/javascript">
+    setTimeout(function () {
+        document.documentElement.style.fontSize = window.innerWidth/10+"px";
+    },2000);
+
+    window.onresize = function () {
+        document.documentElement.style.fontSize = window.innerWidth/10+"px";
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01canvas</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            background-color: darkorange;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .box2,.box3{
+            float: left;
+            width: 98px;
+            height: 100px;
+            border: solid 1px red;
+        }
+    </style>
+</head>
+<body>
+<canvas width="100"></canvas><canvas width="100px"></canvas>
+<div class="box1 box">
+    <div class="box2 in"></div>
+    <div class="box3 in"></div>
+</div>
+<script type="text/javascript">
+    let box1 = document.getElementsByClassName("box1")[0];
+    let box2 = document.getElementsByClassName("box2")[0];
+    
+    // box1.addEventListener("click",function (e) {
+    //     console.log("box1");
+    //     e.stopPropagation();
+    // },true);//这样在box2上点box1也不会触发box2的事件
+    box1.addEventListener("click",function (e) {
+        console.log(e.target);
+        console.log("box1");
+        if (e.target.classList.contains("in")){
+            console.log("child");
+        }
+    });
+    box2.addEventListener("click",function (e) {
+        console.log("box2");
+        // e.stopPropagation();
+    });//这样就不会触发box1事件
+
+    let canvas1 = document.getElementsByTagName("canvas")[0];
+    canvas1.width = 400;
+
+
+</script>
+</body>
+</html>

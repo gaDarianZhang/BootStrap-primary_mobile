@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>app</title>
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<div id="app">
+    <!-- head start -->
+    <div class="head">
+        <div class="head-up">
+            <!--logo-->
+            <div class="logo"><img src="./img/logo.png" alt=""></div>
+            <!--菜单按钮-->
+            <div class="menu"></div>
+            <!--按钮组-->
+            <div class="btn-group">
+                <div class="search-btn btn">搜索</div>
+                <div class="login-btn btn">登录</div>
+                <div class="register-btn btn">注册</div>
+            </div>
+        </div>
+
+        <div class="head-down">
+            <input id="search-inp" type="text" placeholder="请输入搜索内容">
+            <button>搜索</button>
+        </div>
+
+        <ul class="head-cover">
+            <li>
+                <a href="javascript:">首页</a>
+            </li>
+            <li>
+                <a href="javascript:">MV</a>
+            </li>
+            <li>
+                <a href="javascript:">悦单</a>
+            </li>
+            <li>
+                <a href="javascript:">V榜</a>
+            </li>
+            <li>
+                <a href="javascript:">音悦</a>
+            </li>
+            <li>
+                <a href="javascript:">商城</a>
+            </li>
+            <li>
+                <a href="javascript:">节目</a>
+            </li>
+            <li>
+                <a href="javascript:">饭团</a>
+            </li>
+            <li>
+                <a href="javascript:">资讯</a>
+            </li>
+            <li>
+                <a href="javascript:">我的家</a>
+            </li>
+            <li>
+                <a href="javascript:">APP下载</a>
+            </li>
+            <li>
+                <a href="javascript:">热门应用</a>
+            </li>
+        </ul>
+    </div>
+    <!-- head end -->
+
+    <div id="main">
+        <!-- 导航 start -->
+        <div class="nav">
+            <ul class="wrap">
+                <li class="active">
+                    <a href="javascript:">首页</a>
+                </li>
+                <li>
+                    <a href="javascript:">MV</a>
+                </li>
+                <li>
+                    <a href="javascript:">悦单</a>
+                </li>
+                <li>
+                    <a href="javascript:">V榜</a>
+                </li>
+                <li>
+                    <a href="javascript:">音悦</a>
+                </li>
+                <li>
+                    <a href="javascript:">商城</a>
+                </li>
+                <li>
+                    <a href="javascript:">节目</a>
+                </li>
+                <li>
+                    <a href="javascript:">饭团</a>
+                </li>
+                <li>
+                    <a href="javascript:">资讯</a>
+                </li>
+                <li>
+                    <a href="javascript:">我的家</a>
+                </li>
+                <li>
+                    <a href="javascript:">APP下载</a>
+                </li>
+                <li>
+                    <a href="javascript:">热门应用</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 导航 end -->
+
+        <!-- 轮播图 start -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./img/1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/4.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/5.jpg" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- 轮播图 start -->
+
+        <!--电影展示floor start-->
+        <div class="floor">
+            <header>
+                <h3>MV首播</h3>
+                <span>更多 &gt;</span>
+            </header>
+            <nav>
+                <div class="nav-item">内地</div>
+                <div class="nav-item">港台</div>
+                <div class="nav-item">欧美</div>
+                <div class="nav-item">日韩</div>
+                <!--分类下边的滑动条竟然放在这里？？因为要拿他来相对于nav定位-->
+                <div class="move-border"></div>
+            </nav>
+            <section class="container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="swiper-slide">
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="swiper-slide">
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="swiper-slide">
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mv">
+                            <img src="./img/a.jpg" alt="">
+                            <h4>送你一朵小红花</h4>
+                            <div class="info">
+                                <div class="play">
+                                    <div class="icon"></div>
+                                    <span class="num">1024</span>
+                                </div>
+                                <div class="comment">
+                                    <div class="icon"></div>
+                                    <span class="num">666</span>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </section>
+        </div>
+        <!--电影展示floor end-->
+    </div>
+
+</div>
+<script type="text/javascript" src="./js/transformCSS.js"></script>
+<script type="text/javascript" src="./js/swiper-package.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>
+</body>
+</html>

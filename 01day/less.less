@@ -1,0 +1,65 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+ul,li{
+  list-style: none;
+}
+.center{
+  margin: 20px auto;
+  width: 80%;
+}
+@color1:orange;
+header{
+  height: 50px;
+  background-color: @color1;
+}
+/*@变量本是当做变量值，但如果当做字符串来用的话，要加上{}*/
+@remind:alert;
+.@{remind}{
+  height: 50px;
+  .center;
+  background-color: #0D3349;
+}
+
+
+//两种要加引号~的情况：
+@lubo:lunbo;
+@container:container;
+@min900:~"(min-width: 900px)";
+.@{lubo}-@{container}{
+
+  height: 100px;
+  background-color: pink;
+  @media @min900{
+    background-color: red;
+  }
+}
+//extend只能用于正常写的选择器后边，用在那些@的选择器后边无效。且extend内的选择器不能加括号，声明的时候也不能加括号的。
+.lunbo-container:extend(.center){}
+//@lunbotu:~"@{lubo}-@{container}";
+//.@{lunbotu}{
+//  background-color: #00AA88;
+//}
+@flag:0;
+.show() when(@flag=1){
+  background-color: mediumpurple;
+}
+.paper{
+  background-color: #00AA88;
+
+  .show;
+  height: 200px;
+}
+@flag:1;
+
+//嵌套调用
+.mix1(){
+  .mix2(){
+    body{
+      background-color: grey;
+    }
+  }
+}
+
+.mix1.mix2();

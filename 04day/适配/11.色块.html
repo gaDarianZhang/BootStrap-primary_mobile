@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>11.色块测试</title>
+    <script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + "px";
+        window.onresize = function () {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + "px";
+
+        }
+
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 1.47rem 0.54rem 0 0.5rem;
+
+        }
+        header{
+            width: 6.46rem;
+            height: 2.9rem;
+            background-color: #76d1a7;
+            margin-bottom: 0.43rem;
+        }
+        #content{
+            display: flex;
+            justify-content: space-between;
+        }
+        #content .left{
+            width: 1.26rem;
+            height: 4.07rem;
+            background-color: #c464a5;
+        }
+        #content .right{
+            width: 4.67rem;
+            height: 6.5rem;
+            background-color: #697cc3;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <header></header>
+    <div id="content">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</div>
+</body>
+</html>

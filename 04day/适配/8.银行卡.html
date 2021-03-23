@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>8.银行卡</title>
+    <script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth/375 * 100 + "px";
+        window.onresize = function () {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth/375 * 100 + "px";
+        }
+        let node = document.querySelector("header");
+        console.log(node);
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            background-color: ghostwhite;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            vertical-align: bottom;
+        }
+        header{
+            width: 3.75rem;
+            height: 0.75rem;
+            font-size: 0.20rem;
+            font-weight: bold;
+            font-family: PingFangSC-Regular, Arial, sans-serif;
+            text-align: center;
+            line-height: 0.75rem;
+        }
+        section{
+            width: 100%;
+            overflow: hidden;
+        }
+        section .item{
+            width: 3.43rem;
+            height: 1.75rem;
+            margin: 0 auto 0.15rem;
+            box-sizing: border-box;
+            padding: 0.16rem 0.17rem 0.17rem 0.12rem;
+            border-radius: 0.075rem;
+            display: flex;/*弹性容器内的直接子元素开启BFC*/
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+        }
+        section .item .cardName{
+            float: left;
+        }
+        section .item .cardID{
+            float: right;
+        }
+        section .item .cardName .bankName{
+            display: block;
+            font-family: PingFangSC-Regular, Arial, sans-serif;
+            font-size: 0.17rem;
+            font-weight: 600;
+            line-height: 0.17rem;
+        }
+        section .item .cardName .cardCategory{
+            display: block;
+            font-size: 0.14rem;
+            padding-top: 0.04rem;
+        }
+        section .item .cardID{
+            padding-top: 0.08rem;
+            font-weight: 550;
+            font-size: 0.15rem;
+        }
+        section .item .cardID .hideID{
+            color: #dcd5d5;
+        }
+        section .item .bottom{
+            text-align: right;
+            font-size: 0.14rem;
+        }
+        section .jianhang{
+            background-image: linear-gradient(to bottom right,#398cce, #3864be);
+            box-shadow: 0 0 0.03rem #3864be;
+        }
+        section .zhaoshang{
+            background: linear-gradient(to bottom right, #ff7566, #ff5262);
+            box-shadow: 0 0 0.03rem #ff5262;
+        }
+        section .wangshang{
+            background: linear-gradient(to bottom right, #01aa9a, #028caf);
+            box-shadow: 0 0 0.03rem #028caf;
+        }
+        section .nongye{
+            background: linear-gradient(to bottom right, #438A4E, #0C4139);
+            box-shadow: 0 0 0.03rem #0C4139;
+        }
+    </style>
+</head>
+<body>
+<header>我的银行卡</header>
+<section>
+    <div class="item jianhang">
+        <div class="top">
+            <div class="cardName">
+                <span class="bankName">建设银行</span>
+                <span class="cardCategory">储蓄卡</span>
+            </div>
+            <div class="cardID">
+                <span class="hideID">****</span>
+                <span class="tailID">9527</span>
+            </div>
+        </div>
+        <div class="bottom">每日支付限额10000元</div>
+    </div>
+    <div class="item zhaoshang">
+        <div class="top">
+            <div class="cardName">
+                <span class="bankName">建设银行</span>
+                <span class="cardCategory">储蓄卡</span>
+            </div>
+            <div class="cardID">
+                <span class="hideID">****</span>
+                <span class="tailID">9527</span>
+            </div>
+        </div>
+        <div class="bottom">每日支付限额10000元</div>
+    </div>
+    <div class="item wangshang">
+        <div class="top">
+            <div class="cardName">
+                <span class="bankName">建设银行</span>
+                <span class="cardCategory">储蓄卡</span>
+            </div>
+            <div class="cardID">
+                <span class="hideID">****</span>
+                <span class="tailID">9527</span>
+            </div>
+        </div>
+        <div class="bottom">每日支付限额10000元</div>
+    </div>
+    <div class="item nongye">
+        <div class="top">
+            <div class="cardName">
+                <span class="bankName">建设银行</span>
+                <span class="cardCategory">储蓄卡</span>
+            </div>
+            <div class="cardID">
+                <span class="hideID">****</span>
+                <span class="tailID">9527</span>
+            </div>
+        </div>
+        <div class="bottom">每日支付限额10000元</div>
+    </div>
+</section>
+</body>
+</html>

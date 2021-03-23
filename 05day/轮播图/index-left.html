@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index-left</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+        }
+
+        html, body, #app {
+            width: 100%;
+            height: 100%;
+            /*overflow: hidden;*/
+        }
+
+        #swiper-container {
+            width: 100%;
+            /*height: 176px;*/
+            overflow: hidden;
+            position: relative;
+        }
+
+        .swiper-wrapper {
+            width: 500%;
+            /*overflow: hidden; !*为了开启bfc,有了下边的absolute就不需要overflow:hidden了*!*/
+            position: absolute;
+        }
+
+        .swiper-wrapper .swiper-slide {
+            width: 20%;
+            float: left;
+        }
+
+        .swiper-wrapper .swiper-slide img {
+            width: 100%;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            height: 10px;
+            /*width: 100px;*/
+            /*background-color: yellow;*/
+            left: 50%;
+            bottom: 10px;
+            transform: translateX(-50%);
+
+        }
+
+        .swiper-pagination span {
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin-right: 3px;
+            border-radius: 50%;
+            background-color: whitesmoke;
+        }
+
+        .swiper-pagination span.active {
+            background-color: darkorange;
+        }
+        #content{
+            width: 100%;
+            height: 2000px;
+            background-image: linear-gradient(to right top,antiquewhite,skyblue);
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/4.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="img/5.jpg" alt=""></div>
+        </div>
+        <div class="swiper-pagination">
+
+        </div>
+    </div>
+    <div id="content"></div>
+</div>
+<script type="text/javascript">
+    let app = document.getElementById("app");
+    let container = document.getElementById("swiper-container");
+    let wrapper = container.querySelector(".swiper-wrapper");
+    let indexNow = 1;/*当前显示的轮播图的索引*/
+    let pagination = container.querySelector(".swiper-pagination");
+    let dots = null;//container.querySelectorAll(".swiper-pagination>span");
+    let transitionAct = "all 1.5s";
+    let slides = container.querySelectorAll(".swiper-wrapper>.swiper-slide");
+    // let imgNodes = container.querySelectorAll(".swiper-wrapper>.swiper-slide>img");
+    let autoRunTimer = null;
+    let autoRunTime = 3000;
+    let isMoving = false;//图片是否还在动画过渡中。为了应对过渡动画时间长于自动播放定时器。
+    let isFirstMove = true; //touchmove中是否是第一次动
+    let isVertical = false;  //是否要垂直滑动
+
+
+    init();
+    container.addEventListener("touchstart", function (event) {
+        isFirstMove = true;
+
+        //清除图片滑动过渡效果，并且能让当前动画迅速到位，但不会触发transitionend
+        wrapper.style.transition = "none";
+        //关闭动画监听和自动播放定时器
+        wrapper.removeEventListener("transitionend",seamlessScroll);
+        clearInterval(autoRunTimer);
+
+        this.startTime = Date.now();
+        // 判断是否到了边缘，这一部分要放在获取wrapper位置的前边!!!!!!
+        edgeDetection(indexNow);
+        //touch位置
+        this.touchstartX = event.changedTouches[0].clientX;
+        this.touchstartY = event.changedTouches[0].clientY;
+        //wrapper位置
+        wrapper.touchstartLeft = wrapper.offsetLeft;
+
+    });
+    container.addEventListener("touchmove", function (event) {
+        this.touchmoveX = event.changedTouches[0].clientX;
+        this.touchmoveY = event.changedTouches[0].clientY;
+
+        if (isFirstMove){//水平滑动，要阻止默认行为；垂直滑动不阻止默认行为，但要停止自动播放（touchstart的时候已经做了）和左右滑动。
+            isFirstMove = false;
+            if (Math.abs(this.touchmoveX-this.touchstartX) >= Math.abs(this.touchmoveY - this.touchstartY)){
+                isVertical = false;
+            }else {
+                isVertical = true;
+            }
+        }
+        if (isVertical){
+            event.stopPropagation();//不阻止默认行为
+            return ;
+        }
+        wrapper.style.left = wrapper.touchstartLeft + this.touchmoveX - this.touchstartX + "px";
+
+    });
+    container.addEventListener("touchend", function (event) {
+        //增加图片滑动过渡效果
+        wrapper.style.transition = transitionAct;
+
+        this.touchendX = event.changedTouches[0].clientX;
+        //手指滑动过的距离
+        this.endDis = this.touchendX - this.touchstartX;
+
+        if (((Math.abs(this.endDis) >= this.clientWidth / 2) || (Date.now() - this.startTime <= 300)) && isVertical==false) {
+            //判断左右滑动
+            if (this.endDis > 0) {
+                indexNow--;
+            } else if (this.endDis < 0) {
+                indexNow++;
+            }
+            paginationOn(indexNow);
+        }
+        wrapper.style.left = -this.clientWidth * indexNow + "px";
+        //为了应对在自动播放时，我就只是在页面上点了一下，没有发生位移，那么就不会有transition事件，transitionend监听器就不会被触发，但我直接在下边把isMoving设为true，那么autoRun就一直跑不起来。
+        //还有就是当我添加了垂直滑动目的后，如果我的目的是垂直滑动，但是我松手的时候我的touchstart和touchend水平距离还是会不同的，不能因为这个把isMoving判断为了true
+        isMoving = (this.endDis%container.clientWidth==0||isVertical==true)?false:true;//
+        //重启自动播放
+        autoRun();
+    });
+
+    //小圆点亮
+    function paginationOn(index) {
+        //index传给小圆点的时候都要保持为1-5
+        if (index == 0 || index ==slides.length-1){
+            index = Math.abs(index-slides.length+2);
+        }
+        //先移除所有点的active类
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].classList.remove("active");
+        }
+        dots[index-1].classList.add("active");
+    }
+    //初始化设置
+    function init() {
+        //！！！！！！！！这样是不行的,而是需要把对象克隆一份。？？？为什么呢
+        // wrapper.appendChild(slides[0]);//这时,slides对象中还是原始的几张图片
+        // wrapper.insertBefore(slides[slides.length-1],slides[0]);//这时,slides对象中仍然还是原始的几张图片
+        wrapper.appendChild(slides[0].cloneNode(true));//这时,slides对象中还是原始的几张图片
+        wrapper.insertBefore(slides[slides.length-1].cloneNode(true),slides[0]);//这时,slides对象中仍然还是原始的几张图片
+        //更新slides对象
+        slides = container.querySelectorAll(".swiper-wrapper>.swiper-slide");
+        slides.forEach(function (slid){
+            slid.style.width = container.clientWidth + "px";
+            //  console.log(container.clientWidth);
+        });
+
+        //根据数量自动创建小圆点
+        pagination.innerHTML = "<span></span>".repeat(slides.length-2);
+        dots = container.querySelectorAll(".swiper-pagination>span");
+
+        //展示第一张图片
+        dots[0].classList.add("active");
+        wrapper.style.left = -container.clientWidth + "px";
+
+        app.addEventListener("touchmove", function (event) {
+            event.preventDefault();
+        });
+
+        //container高度设置,放在onload里边，要不然页面元素没有渲染完就获取元素高度会得到0
+        window.onload = function () {
+            container.style.height = slides[0].offsetHeight + "px";
+            wrapper.style.width = slides.length*100+"%";
+
+        }
+        autoRun();
+
+    }
+
+    //只有在动画正常结束的时候才会触发该事件，然后边缘检测和indexNow修改都是在这里边进行的。
+    //如果刚好在最后一张的时候，我快速滑动，也就是在上一个动画还没结束的时候又接着滑动了，那么
+    //该事件就不会被触发，indexNow就不会被正确修改。所以，这一部分用在自动播放，手动滑动的边界判断就放在touchstart里边吧
+    // wrapper.addEventListener("transitionend",seamlessScroll);
+
+    //无缝滚动，主要用于边缘检测
+    function seamlessScroll() {
+        // console.log("transition end end end");
+        //判断是否到了边缘
+        edgeDetection(indexNow);
+        isMoving = false;
+    }
+
+    function autoRun() {
+        //为了防止我刚好拖动了一个图片的宽度,那么就没有transition动画，那么松手后transitionend检测不到事件，isMoving就一直是true，autoRun就跑不动。
+        //如果我仅仅在touchend事件内判断container.endDis%container.clientWidth==0，那么当我遇到刚好我手动滑动后是一张边缘图片。但是自动播放的边缘检测是在transitionend事件监听器里边，
+        //但是呢，因为没有transition动画，就不能期待transitionend监听器把这个边缘问题给解决掉了，所以要在这里手动解决。
+        //当然，如果钻牛角尖的话，如果我手动拖动了两张图片的距离，但是在touchend里边indexNow只是加了1！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        if (container.endDis%container.clientWidth==0 && container.endDis/container.clientWidth!=0){
+            edgeDetection(indexNow);
+        }
+
+        clearInterval(autoRunTimer);
+        wrapper.addEventListener("transitionend",seamlessScroll);
+        autoRunTimer = setInterval(function () {
+            if (isMoving){
+                // console.log("moving");
+                return;
+            }
+            // console.log("static");
+            indexNow++;
+            wrapper.style.transition = transitionAct;
+            wrapper.style.left = -container.clientWidth * indexNow + "px";
+            paginationOn(indexNow);
+            isMoving = true;
+        },autoRunTime);
+    }
+    function edgeDetection(index) {
+        if (index == 0 || index == slides.length-1){
+            wrapper.style.transition = "none";
+            indexNow = Math.abs(index-slides.length+2)
+            wrapper.style.left = - indexNow * container.clientWidth + "px";
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

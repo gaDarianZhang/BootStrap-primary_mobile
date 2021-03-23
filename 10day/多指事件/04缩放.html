@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04缩放</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 2rem;
+            height: 2rem;
+            background-color: darkorange;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript" src="../js/transformCSS.js"></script>
+<script type="text/javascript" src="../js/gesture.js"></script>
+<script type="text/javascript">
+
+
+    document.documentElement.style.fontSize = window.innerWidth/375 * 100 + "px";
+    window.onresize = function () {
+        document.documentElement.style.fontSize = window.innerWidth/375 * 100 + "px";
+    };
+
+    document.documentElement.addEventListener("touchstart",function (event) {
+        event.preventDefault();
+    },{
+        passive:false
+    });
+
+    let box = document.getElementById("box");
+    
+    gesture(box,{
+        start:function (event) {
+            //得到元素的初始缩放比例
+            box.initScale = transformCSS(box,"scale");
+            //得到两个手指间的距离
+            box.initDis = getDis(event.touches[0],event.touches[1]);
+        },
+        change:function (event) {
+            //计算两个手指间的距离
+            box.moveDis = getDis(event.touches[0],event.touches[1]);
+            box.moveScale = box.moveDis/box.initDis * box.initScale;
+            transformCSS(box,"scale",box.moveScale);
+        },
+        end:function () {
+            
+        }
+    })
+    
+    function getDis(dot1, dot2) {
+        let disX = dot1.clientX - dot2.clientX;
+        let disY = dot1.clientY - dot2.clientY;
+        return Math.sqrt(disX*disX+disY*disY);
+    }
+    
+
+</script>
+</body>
+</html>
